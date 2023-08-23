@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MockApiServiceService } from '../mock-api-service.service';
 import { HttpService } from '../services/http.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,8 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private httpService: HttpService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -35,6 +37,7 @@ export class LoginPageComponent implements OnInit {
           this.httpService.isAuthenticated(true);
           this.router.navigate(['/home']);
         } else {
+          this._snackBar.open('checks');
           this.httpService.isAuthenticated(false);
         }
       });

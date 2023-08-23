@@ -8,12 +8,17 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private http: HttpService) {}
+  constructor(
+    private router: Router,
+    private http: HttpService,
+    private snackBar: MatSnackBar
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -29,6 +34,7 @@ export class AuthGuard implements CanActivate {
     } else {
       debugger;
       // User is not authenticated, navigate to a login page or show a message
+      this.snackBar.open('please login to access this route');
       this.router.navigate(['']); // Change '/login' to your actual login route
       return false;
     }
