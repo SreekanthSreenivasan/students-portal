@@ -8,13 +8,14 @@ import { MockApiServiceService } from './mock-api-service.service';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomePageComponent } from './services/home-page/home-page.component';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, HomePageComponent],
+  declarations: [AppComponent, LoginPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +26,8 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatCardModule,
+
     InMemoryWebApiModule.forRoot(MockApiServiceService),
   ],
   providers: [],

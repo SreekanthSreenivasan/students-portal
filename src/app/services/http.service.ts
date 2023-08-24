@@ -5,7 +5,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class HttpService {
+export class LoginService {
   constructor(private http: HttpClient) {}
   isAuthenticates = new Subject<boolean>();
   isAuthSuccess = new BehaviorSubject<boolean>(false);

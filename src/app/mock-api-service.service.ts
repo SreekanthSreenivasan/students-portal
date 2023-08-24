@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { MOCK_STUDENTS_DB } from 'src/mock_db';
+import { MOCK_STUDENTS_DB, MOCK_STUDENTS_DETAILS } from 'src/mock_db';
 
 @Injectable({
   providedIn: 'root',
@@ -9,19 +9,6 @@ import { MOCK_STUDENTS_DB } from 'src/mock_db';
 export class MockApiServiceService implements InMemoryDbService {
   constructor() {}
   createDb() {
-    return { students: MOCK_STUDENTS_DB };
+    return { students: MOCK_STUDENTS_DB, details: MOCK_STUDENTS_DETAILS };
   }
-
-  // login(userName: string, password: any) {
-  //   this.http
-  //     .get<any>(`api/students?username=${userName}&password=${password}`)
-  //     .subscribe((response) => {
-  //       debugger;
-  //       if (response.length > 0) {
-  //         // Successful login
-  //       } else {
-  //         // Invalid credentials
-  //       }
-  //     });
-  // }
 }
